@@ -27,5 +27,4 @@ bottom_sample_temperature_c`)
 })
 .catch((err) => {
   console.log('err! ', err)
-  console.log('errrrrrrr')
 })
