@@ -21,7 +21,6 @@ class App extends React.Component {
     osc.connect(Tone.Master)
     osc.start()
 
-
   }
 
   render() {
