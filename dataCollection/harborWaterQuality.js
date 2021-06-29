@@ -1,5 +1,7 @@
 const axios = require('axios')
 
+module.exports.getSamples = (callback) => {
+
 axios.get(`https://data.cityofnewyork.us/resource/5uug-f49n.json?$query=SELECT
 sample_date,
 bottom_salinity_psu,
@@ -20,30 +22,33 @@ light_trans_transparency_bottom_sample`)
     console.log('store count: ', Object.keys(store).length)
     // console.log('stpre: ', store)
 
-    var ranges = {}
-    for (var obj in store) {
-      for (var key in store[obj]) {
-        if (!ranges[key]) {
-          ranges[key] = [Number(store[obj][key]), Number(store[obj][key])]
-        }
-        else {
-          if (Number(store[obj][key]) < ranges[key][0]) {
-            ranges[key][0] = Number(store[obj][key])
-          } else if (Number(store[obj][key] > ranges[key][1])) {
-            ranges[key][1] = Number(store[obj][key])
-          }
-        }
-      }
-    }
+    callback(null, store)
 
-    console.log('ranges: ', ranges)
+    // var ranges = {}
+    // for (var obj in store) {
+    //   for (var key in store[obj]) {
+    //     if (!ranges[key]) {
+    //       ranges[key] = [Number(store[obj][key]), Number(store[obj][key])]
+    //     }
+    //     else {
+    //       if (Number(store[obj][key]) < ranges[key][0]) {
+    //         ranges[key][0] = Number(store[obj][key])
+    //       } else if (Number(store[obj][key] > ranges[key][1])) {
+    //         ranges[key][1] = Number(store[obj][key])
+    //       }
+    //     }
+    //   }
+    // }
+
+    // console.log('ranges: ', ranges)
 
 
   })
   .catch((err) => {
     console.log('err! ', err)
+    callback(err)
   })
-
+}
 
 
 

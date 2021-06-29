@@ -1,17 +1,28 @@
 import React from 'react';
 import Cats from './Cats.jsx';
 import * as Tone from 'tone';
+import axios from 'axios';
 // import context from 'startaudiocontext';
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-
+    this.state = {
+      samples: {}
+    }
     this.create = this.create.bind(this)
   }
 
   componentDidMount() {
-
+    console.log('mountedn')
+    axios
+    .get('/samples')
+    .then((res) => {
+      console.log('got res! ', res)
+    })
+    .catch((err) => {
+      console.log('err getting data! ', err)
+    })
 
   }
 
@@ -21,6 +32,11 @@ class App extends React.Component {
     osc.connect(Tone.Master)
     osc.start()
 
+  }
+
+  play () {
+
+    // this needs to be async
   }
 
   render() {
