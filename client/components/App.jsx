@@ -37,6 +37,8 @@ class App extends React.Component {
   play () {
 
     // this needs to be async
+    // create a day variable set to earliest date in object
+    // create a setInterval function, update every 100 (for now) milliseconds
   }
 
   render() {
