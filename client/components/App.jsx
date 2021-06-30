@@ -63,15 +63,15 @@ class App extends React.Component {
 
           // violin 2
           var violin2Data = this.state.samples[date.toISOString().split('T')[0]][this.state.v2]
-          Violin_2.play(violin2Data, temp, this.state.ranges[this.state.v2])
+          // Violin_2.play(violin2Data, temp, this.state.ranges[this.state.v2])
 
           // viola
           var violaData = this.state.samples[date.toISOString().split('T')[0]][this.state.vla]
-          Viola.play(violaData, temp, this.state.ranges[this.state.vla])
+          // Viola.play(violaData, temp, this.state.ranges[this.state.vla])
 
           // violoncello
           var celloData = this.state.samples[date.toISOString().split('T')[0]][this.state.vcl]
-          Violoncello.play(celloData, temp, this.state.ranges[this.state.vcl])
+          // Violoncello.play(celloData, temp, this.state.ranges[this.state.vcl])
 
           sampleCount++
           console.log(`played ${sampleCount} samples.`)
@@ -85,7 +85,7 @@ class App extends React.Component {
 
         startDate.setDate(startDate.getDate() + 1) // --> increments the day by 1 (destructive)
 
-      }, 10)
+      }, 62.9)
 
 
     return sampleSequence;
