@@ -40,29 +40,26 @@ class App extends React.Component {
   }
 
   play() {
-    console.log('operations on first date: ', Object.keys(this.state.samples)[0])
-    // this needs to be async
-    // create a day variable set to earliest date in object
-    var startDate = new Date('1995-12-17T00:00:00')
 
-    //day++;
-    var aDate = new Date(Object.keys(this.state.samples)[0])
-    console.log('this is day: ', startDate.toISOString())
 
-    // create a recursive function with a setTimeOut function
+    var startDate = new Date('1995-12-17T00:00:00Z')
+    startDate.setDate(startDate.getDate() + 1)
+    console.log('this is startDate: ', startDate)
+
     var sampleSequence = (date) => {
 
       // if day exists in this.samples
-      if (this.state.samples[date]) {
+      if (this.state.samples[date.toISOString()]) {
         // play the values with toneJS
-        // call recursive function after a setTimeOut of 10ms (for now)
+
         // if it is the last day
         // return console.log('done!')
-      } else {
-        // call sampleSequence with date plus a day
       }
 
+      //sampleSequence(date + 1)
+
     }
+    sampleSequence(startDate)
   }
 
   render() {
