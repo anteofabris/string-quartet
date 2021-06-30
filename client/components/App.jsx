@@ -48,14 +48,13 @@ class App extends React.Component {
 
     var startDate = new Date('1995-01-04T00:00:00.000Z')
 
-    var sampleSequence = () => {
-var context =
+    var sampleSequence =
       setInterval(() => {
         console.log('next day')
         var date = startDate
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
           console.log('the piece is over!')
-          clearInterval(context)
+          clearInterval(sampleSequence)
           return;
         }
 
@@ -85,10 +84,9 @@ var context =
         startDate.setDate(startDate.getDate() + 1) // --> increments the day by 1 (destructive)
 
       }, 10)
-      return context;
-    }
 
-    sampleSequence()
+
+    return sampleSequence
 
   }
 
