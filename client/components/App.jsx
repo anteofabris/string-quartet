@@ -45,25 +45,25 @@ class App extends React.Component {
 
   play() {
 
-
     var startDate = new Date('1995-01-04T00:00:00.000Z')
-    //startDate.setDate(startDate.getDate() + 1)
-    console.log('this is startDate: ', startDate.toISOString().toString())
 
     var sampleSequence = (date) => {
      console.log('exists?', this.state.samples[date.toISOString().toString()])
       // if day exists in this.samples
       if (this.state.samples[date.toISOString().toString()]) {
-        // play the values with toneJS
-        //var violin1Measurement = this.state.v1
+
+        var temp = this.state.samples[date.toISOString().toString()].bottom_sample_temperature_c
         var violin1Data = this.state.samples[date.toISOString().toString()][this.state.v1]
-        console.log('yippe: ', violin1Data)
+        Violin_1.play(violin1Data, temp)
 
         // if it is the last day
-        // return console.log('done!')
+        if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
+        console.log('the piece is over!')
+        return;
+        }
       }
-
-      //sampleSequence(date + 1)
+      // date.setDate(startDate.getDate() + 1) // --> increments the day by 1 (destructive)
+      // setTimeOut(sampleSequence(date), 10)
 
     }
     sampleSequence(startDate)
