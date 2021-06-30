@@ -1,7 +1,7 @@
 const Tone = require('tone')
 
-module.exports.play = (spec, temp) => {
-
+module.exports.play = (spec, temp, minMax) => {
+console.log('playing violin 2 lol', spec, temp, minMax)
   var a = 196
   var b = 3520
   var min = minMax[0]

@@ -1,7 +1,7 @@
 const Tone = require('tone')
 
 module.exports.play = (spec, temp, minMax) => {
-  //console.log('playing the violin lol', spec, temp, minMax)
+  console.log('playing violin 1 lol', spec, temp, minMax)
 
   // var osc = new Tone.Oscillator()
   // osc.connect(Tone.Master)

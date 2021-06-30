@@ -49,18 +49,33 @@ class App extends React.Component {
     var startDate = new Date('1995-01-04T00:00:00.000Z')
 
     var sampleSequence = (date) => {
-     console.log('exists?', this.state.samples[date.toISOString().toString()])
+      console.log('exists?', this.state.samples[date.toISOString().toString()])
       // if day exists in this.samples
       if (this.state.samples[date.toISOString().toString()]) {
 
+        // get temperature
         var temp = this.state.samples[date.toISOString().toString()].bottom_sample_temperature_c
+
+        // vioilin 1
         var violin1Data = this.state.samples[date.toISOString().toString()][this.state.v1]
         Violin_1.play(violin1Data, temp, this.state.ranges[this.state.v1])
 
+        // violin 2
+        var violin2Data = this.state.samples[date.toISOString().toString()][this.state.v2]
+        Violin_2.play(violin2Data, temp, this.state.ranges[this.state.v2])
+
+        // viola
+        var violaData = this.state.samples[date.toISOString().toString()][this.state.vla]
+        Viola.play(violaData, temp, this.state.ranges[this.state.vla])
+
+        // violoncello
+        var celloData = this.state.samples[date.toISOString().toString()][this.state.vcl]
+        Violoncello.play(celloData, temp, this.state.ranges[this.state.vcl])
+
         // if it is the last day
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
-        console.log('the piece is over!')
-        return;
+          console.log('the piece is over!')
+          return;
         }
       }
       // date.setDate(startDate.getDate() + 1) // --> increments the day by 1 (destructive)
