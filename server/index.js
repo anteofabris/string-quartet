@@ -15,7 +15,7 @@ app.get('/samples', (req, res) => {
     if (err) {
       console.log('err getting samples: ', err)
     } else {
-      console.log('success getting samples: ', Object.keys(data).length)
+      console.log('success getting samples: ', Object.keys(data.samples).length)
       res.send(data)
     }
   })
