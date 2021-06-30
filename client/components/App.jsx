@@ -2,6 +2,7 @@ import React from 'react';
 import Cats from './Cats.jsx';
 import * as Tone from 'tone';
 import axios from 'axios';
+import Viola from '../../audio-exit/Viola.js'
 // import context from 'startaudiocontext';
 
 class App extends React.Component {
@@ -30,10 +31,8 @@ class App extends React.Component {
   }
 
   create() {
+    Viola.play()
 
-    var osc = new Tone.Oscillator()
-    osc.connect(Tone.Master)
-    osc.start()
 
   }
 
