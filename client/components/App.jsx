@@ -12,7 +12,11 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      samples: {}
+      samples: {},
+      v1: 'winkler_method_top_dissolved_oxygen_mg_l',
+      v2: 'bottom_salinity_psu',
+      vla: 'bottom_ph',
+      vcl: 'light_trans_transparency_bottom_sample'
     }
     this.create = this.create.bind(this)
     this.play = this.play.bind(this)
@@ -42,15 +46,18 @@ class App extends React.Component {
   play() {
 
 
-    var startDate = new Date('1995-12-17T00:00:00Z')
-    startDate.setDate(startDate.getDate() + 1)
-    console.log('this is startDate: ', startDate)
+    var startDate = new Date('1995-01-04T00:00:00.000Z')
+    //startDate.setDate(startDate.getDate() + 1)
+    console.log('this is startDate: ', startDate.toISOString().toString())
 
     var sampleSequence = (date) => {
-
+     console.log('exists?', this.state.samples[date.toISOString().toString()])
       // if day exists in this.samples
-      if (this.state.samples[date.toISOString()]) {
+      if (this.state.samples[date.toISOString().toString()]) {
         // play the values with toneJS
+        //var violin1Measurement = this.state.v1
+        var violin1Data = this.state.samples[date.toISOString().toString()][this.state.v1]
+        console.log('yippe: ', violin1Data)
 
         // if it is the last day
         // return console.log('done!')
