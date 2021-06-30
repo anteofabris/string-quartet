@@ -28,7 +28,8 @@ class App extends React.Component {
       .then((res) => {
         console.log('got res! ', res)
         this.setState({
-          samples: res.data
+          samples: res.data.samples,
+          ranges: res.data.ranges
         })
       })
       .catch((err) => {

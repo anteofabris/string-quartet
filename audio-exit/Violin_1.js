@@ -7,4 +7,8 @@ module.exports.play = (spec, temp) => {
   // osc.connect(Tone.Master)
   // osc.start()
 
+  var synth = new Tone.Synth()
+  synth.connect(Tone.Master)
+  synth.triggerAttackRelease(220, "8n")
+
 }
