@@ -2,8 +2,11 @@ import React from 'react';
 import Cats from './Cats.jsx';
 import * as Tone from 'tone';
 import axios from 'axios';
+import Violin_1 from '../../audio-exit/Violin_1.js'
+import Violin_2 from '../../audio-exit/Violin_2.js'
 import Viola from '../../audio-exit/Viola.js'
-// import context from 'startaudiocontext';
+import Violoncello from '../../audio-exit/Violoncello.js'
+
 
 class App extends React.Component {
   constructor(props) {
@@ -31,7 +34,7 @@ class App extends React.Component {
   }
 
   create() {
-    Viola.play()
+
 
 
   }
@@ -40,15 +43,26 @@ class App extends React.Component {
     console.log('operations on first date: ', Object.keys(this.state.samples)[0])
     // this needs to be async
     // create a day variable set to earliest date in object
-    var day = new Date('1995-12-17T00:00:00')
-    console.log('this is day: ', day)
+    var startDate = new Date('1995-12-17T00:00:00')
+
+    //day++;
+    var aDate = new Date(Object.keys(this.state.samples)[0])
+    console.log('this is day: ', startDate.toISOString())
 
     // create a recursive function with a setTimeOut function
-    // if day exists in this.samples
-    // play the values with toneJS
-    // call recursive function after a setTimeOut of 10ms (for now)
-    // if it is the last day
-    // return console.log('done!')
+    var sampleSequence = (date) => {
+
+      // if day exists in this.samples
+      if (this.state.samples[date]) {
+        // play the values with toneJS
+        // call recursive function after a setTimeOut of 10ms (for now)
+        // if it is the last day
+        // return console.log('done!')
+      } else {
+        // call sampleSequence with date plus a day
+      }
+
+    }
   }
 
   render() {

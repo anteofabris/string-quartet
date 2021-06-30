@@ -15,7 +15,7 @@ light_trans_transparency_bottom_sample`)
     //console.log(data)
     for (var i = 0; i < data.length; i++) {
       if (Object.keys(data[i]).length === 6) {
-        store[data[i].sample_date] = data[i]
+        store[(data[i].sample_date) + 'Z'] = data[i]
       }
     }
 
