@@ -55,7 +55,7 @@ class App extends React.Component {
 
         var temp = this.state.samples[date.toISOString().toString()].bottom_sample_temperature_c
         var violin1Data = this.state.samples[date.toISOString().toString()][this.state.v1]
-        Violin_1.play(violin1Data, temp)
+        Violin_1.play(violin1Data, temp, this.state.ranges[this.state.v1])
 
         // if it is the last day
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
