@@ -50,12 +50,9 @@ class App extends React.Component {
     var sampleCount = 0
     var sampleSequence =
       setInterval(() => {
-        console.log('next day', startDate.toISOString())
         var date = startDate
-        //console.log('well here it is', this.state.samples['1995-07-11T00:00:00.000Z'])
 
         if (this.state.samples[date.toISOString().split('T')[0]] !== undefined) {
-          console.log('sample!', startDate.toISOString())
 
           // get temperature
           var temp = this.state.samples[date.toISOString().split('T')[0]].bottom_sample_temperature_c
@@ -79,11 +76,6 @@ class App extends React.Component {
           sampleCount++
           console.log(`played ${sampleCount} samples.`)
         }
-
-        // if (date.toISOString().toString() === '1995-07-11T00:00:00.000Z') {
-        //   console.log('YO!')
-
-        // }
 
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
           console.log('the piece is over!')
