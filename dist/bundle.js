@@ -401,7 +401,7 @@ eval("\n\nvar bind = __webpack_require__(/*! ./helpers/bind */ \"./node_modules/
   \*****************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function () {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Viola.js?");
+eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function (spec, temp) {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Viola.js?");
 
 /***/ }),
 
@@ -411,7 +411,7 @@ eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm
   \********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function () {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violin_1.js?");
+eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function (spec, temp) {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violin_1.js?");
 
 /***/ }),
 
@@ -421,7 +421,7 @@ eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm
   \********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function () {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violin_2.js?");
+eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function (spec, temp) {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violin_2.js?");
 
 /***/ }),
 
@@ -431,7 +431,7 @@ eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm
   \***********************************/
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
-eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function () {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violoncello.js?");
+eval("var Tone = __webpack_require__(/*! tone */ \"./node_modules/tone/build/esm/index.js\");\n\nmodule.exports.play = function (spec, temp) {\n  var osc = new Tone.Oscillator();\n  osc.connect(Tone.Master);\n  osc.start();\n};\n\n//# sourceURL=webpack://ok/./audio-exit/Violoncello.js?");
 
 /***/ }),
 
