@@ -46,7 +46,10 @@ class App extends React.Component {
     // this.setState({
     //   playPressed: true
     // })
-    var Violin = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v1])
+    var Violin1 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v1])
+    var Violin2 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v2])
+    var Viola = new Instrument(130.81, 659.255, 1318.51, this.state.ranges[this.state.vla])
+    var Violoncello = new Instrument(65.41, 523.25, 1046.5, this.state.ranges[this.state.vcl])
 
 
     var sampleSequence =
@@ -55,23 +58,22 @@ class App extends React.Component {
         console.log('new day', date)
 
         if (this.state.samples[date.toISOString().split('T')[0]] !== undefined) {
-
-
+          Violin1.play(0, 0, 'off')
+          Violin2.play(0, 0, 'off')
+          Viola.play(0, 0, 'off')
+          Violoncello.play(0, 0, 'off')
 
           // get temperature
           var temp = this.state.samples[date.toISOString().split('T')[0]].bottom_sample_temperature_c
-
           var violin1Spec = this.state.samples[date.toISOString().split('T')[0]][this.state.v1]
-          //Violin_1.play(violin1Spec, temp, this.state.ranges[this.state.v1], 'on')
-
           var violin2Spec = this.state.samples[date.toISOString().split('T')[0]][this.state.v2]
-          //Violin_2.play(violin2Spec, temp, this.state.ranges[this.state.v2], 'on')
-
           var violaSpec = this.state.samples[date.toISOString().split('T')[0]][this.state.vla]
-         // Viola.play(violaSpec, temp, this.state.ranges[this.state.vla], 'on')
-
           var celloSpec = this.state.samples[date.toISOString().split('T')[0]][this.state.vcl]
-         // Violoncello.play(celloSpec, temp, this.state.ranges[this.state.vcl], 'on')
+
+          Violin1.play(violin1Spec, temp, 'on')
+          Violin2.play(violin2Spec, temp, 'on')
+          Viola.play(violaSpec, temp, 'on')
+          Violoncello.play(celloSpec, temp, 'on')
 
           sampleCount++
           console.log(`played ${sampleCount} samples.`)
@@ -93,7 +95,7 @@ class App extends React.Component {
     if (this.state.playPressed) {
     return (
       <div>
-        <h1>App.js is connected and working!</h1>
+        <h1>This will eventually be a string quartet</h1>
         <button id="playButton" onClick={this.play}>PLAY</button>
         <Violin_1_Component />
       </div>
@@ -101,7 +103,7 @@ class App extends React.Component {
     } else {
       return (
         <div>
-          <h1>App.js is connected and working!</h1>
+          <h1>This will eventually be a string quartet</h1>
           <button id="playButton" onClick={this.play}>PLAY</button>
         </div>
       )
