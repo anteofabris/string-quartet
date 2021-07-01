@@ -43,10 +43,10 @@ class App extends React.Component {
     var startDate = new Date('1995-01-04T00:00:00.000Z')
     var sampleCount = 0
 
-    var Violin1 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v1])
-    var Violin2 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v2])
-    var Viola = new Instrument(130.81, 659.255, 1318.51, this.state.ranges[this.state.vla])
-    var Violoncello = new Instrument(65.41, 523.25, 1046.5, this.state.ranges[this.state.vcl])
+    var Violin1 = new Instrument('Violin1', 196, 1760, 3520, this.state.ranges[this.state.v1])
+    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, this.state.ranges[this.state.v2])
+    var Viola = new Instrument('Viola', 130.81, 659.255, 1318.51, this.state.ranges[this.state.vla])
+    var Violoncello = new Instrument('Violincello', 65.41, 523.25, 1046.5, this.state.ranges[this.state.vcl])
 
 
     var sampleSequence =
@@ -55,13 +55,14 @@ class App extends React.Component {
         console.log('new day', date)
 
         if (this.state.samples[date.toISOString().split('T')[0]] !== undefined) {
-          Violin1.play(0, 0, 'off')
-          Violin2.play(0, 0, 'off')
-          Viola.play(0, 0, 'off')
-          Violoncello.play(0, 0, 'off')
+          // Violin1.play(0, 0, 'off')
+          // Violin2.play(0, 0, 'off')
+          // Viola.play(0, 0, 'off')
+          // Violoncello.play(0, 0, 'off')
 
           // get temperature
           var temp = this.state.samples[date.toISOString().split('T')[0]].bottom_sample_temperature_c
+
           var violin1Spec = this.state.samples[date.toISOString().split('T')[0]][this.state.v1]
           var violin2Spec = this.state.samples[date.toISOString().split('T')[0]][this.state.v2]
           var violaSpec = this.state.samples[date.toISOString().split('T')[0]][this.state.vla]
