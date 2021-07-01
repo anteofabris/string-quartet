@@ -17,6 +17,7 @@ class App extends React.Component {
       sampleCount: 0
     }
     this.play = this.play.bind(this)
+    this.stop = this.stop.bind(this)
   }
 
   componentDidMount() {
@@ -29,6 +30,18 @@ class App extends React.Component {
           ranges: res.data.ranges
         }, () => { console.log('num samples: ', Object.keys(this.state.samples).length) })
       })
+      .then(() => {
+        this.setState({
+          Violin1: new Instrument('Violin1', 196, 1760, 3520, 440, this.state.ranges[this.state.v1], this.state.ranges['bottom_sample_temperature_c']),
+          Violin2: new Instrument('Violin2', 196, 1760, 3520, 440, this.state.ranges[this.state.v2].reverse(), this.state.ranges['bottom_sample_temperature_c']),
+          Viola: new Instrument('Viola', 130.81, 659.255, 1318.51, 440, this.state.ranges[this.state.vla], this.state.ranges['bottom_sample_temperature_c']),
+          Violoncello: new Instrument('Violincello', 65.41, 523.25, 1046.5, 440, this.state.ranges[this.state.vcl], this.state.ranges['bottom_sample_temperature_c'])
+
+        })
+      })
+      .then(() => {
+        console.log('ready to play!')
+      })
       .catch((err) => {
         console.log('err getting data! ', err)
       })
@@ -37,17 +50,16 @@ class App extends React.Component {
 
   stop() {
 
+    this.state.Violin1.stop()
+    this.state.Violin2.stop()
+    this.state.Viola.stop()
+    this.state.Violoncello.stop()
+
   }
 
   play() {
     var startDate = new Date('1995-01-04T00:00:00.000Z')
     var sampleCount = 0
-
-    var Violin1 = new Instrument('Violin1', 196, 1760, 3520, 440, this.state.ranges[this.state.v1], this.state.ranges['bottom_sample_temperature_c'])
-    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, 440, this.state.ranges[this.state.v2].reverse(), this.state.ranges['bottom_sample_temperature_c'])
-    var Viola = new Instrument('Viola', 130.81, 659.255, 1318.51, 440, this.state.ranges[this.state.vla], this.state.ranges['bottom_sample_temperature_c'])
-    var Violoncello = new Instrument('Violincello', 65.41, 523.25, 1046.5, 440, this.state.ranges[this.state.vcl], this.state.ranges['bottom_sample_temperature_c'])
-
 
     var sampleSequence =
       setInterval(() => {
@@ -64,10 +76,10 @@ class App extends React.Component {
           var violaSpec = this.state.samples[date.toISOString().split('T')[0]][this.state.vla]
           var celloSpec = this.state.samples[date.toISOString().split('T')[0]][this.state.vcl]
 
-          Violin1.play(violin1Spec, temp, 'on')
-          Violin2.play(violin2Spec, temp, 'on')
-          Viola.play(violaSpec, temp, 'on')
-          Violoncello.play(celloSpec, temp, 'on')
+          this.state.Violin1.play(violin1Spec, temp, 'on')
+          this.state.Violin2.play(violin2Spec, temp, 'on')
+          this.state.Viola.play(violaSpec, temp, 'on')
+          this.state.Violoncello.play(celloSpec, temp, 'on')
 
           sampleCount++
           console.log(`played ${sampleCount} samples.`)
@@ -75,10 +87,10 @@ class App extends React.Component {
 
         }
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
-          Violin1.stop()
-          Violin2.stop()
-          Viola.stop()
-          Violoncello.stop()
+          this.state.Violin1.stop()
+          this.state.Violin2.stop()
+          this.state.Viola.stop()
+          this.state.Violoncello.stop()
           clearInterval(sampleSequence)
           console.log('the piece is over!')
           return;
@@ -91,13 +103,13 @@ class App extends React.Component {
 
   render() {
 
-      return (
-        <div>
-          <h1>This will eventually be a string quartet</h1>
-          <button id="playButton" onClick={this.play}>PLAY</button>
-          <button id="stopButton" onClick={this.stop}>STOP</button>
-        </div>
-      )
+    return (
+      <div>
+        <h1>This will eventually be a string quartet</h1>
+        <button id="playButton" onClick={this.play}>PLAY</button>
+        <button id="stopButton" onClick={this.stop}>STOP</button>
+      </div>
+    )
 
 
   }

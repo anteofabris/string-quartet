@@ -25,8 +25,7 @@ module.exports = class Instrument {
   }
 
   stop() {
-    this.pattern.stop()
-    Tone.Transport.stop();
+    this.synth.triggerRelease()
   }
 
   play(spec, temp, control) {
@@ -34,18 +33,6 @@ module.exports = class Instrument {
     var val = this.low + ((spec - this.min) * (this.high - this.low) / (this.max - this.min))
     var alt = this.low + ((spec - this.min) * (this.mid - this.low) / (this.max - this.min))
     var cho = this.low + ((spec - this.min) * (this.choice - this.low) / (this.max - this.min))
-
-    // var options =
-    //   [
-    //     [val, alt],
-    //     [val, alt, alt],
-    //     [val, alt, alt, val],
-    //     [val, alt, val, alt, val],
-    //     [val, alt, alt, val, alt, val],
-    //     [val, alt, alt, val, alt, alt, val],
-    //     [val, alt, alt, val, alt, alt, val, alt],
-    //     [alt, alt]
-    //   ]
 
     var minTemp = this.tempRange[0]
     var maxTemp = this.tempRange[1]
@@ -56,19 +43,10 @@ module.exports = class Instrument {
     //  console.log('tempVal:', tempVal, 'current val array: ', options[tempVal])
     console.log('tempInterval: ', tempInterval)
 
-    // this.pattern.stop()
-    // Tone.Transport.stop();
-    // this.pattern.set({
-    //   values: [alt, alt]
-    // })
-    // this.pattern.loop = true;
-    // this.pattern.interval = tempInterval;
 
-    // Tone.Transport.start();
-    // this.pattern.start();
     this.synth.triggerRelease()
     this.synth.triggerAttack(alt, '1n')
-    //this.synth.start()
+
 
 
   }
