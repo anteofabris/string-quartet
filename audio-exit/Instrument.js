@@ -9,19 +9,7 @@ module.exports = class Instrument {
     this.choice = choice
     this.min = minMax[0];
     this.max = minMax[1];
-    this.synth = new Tone.Synth(
-      {
-        oscillator: {
-          type: 'triangle'
-        },
-        envelope: {
-          attack: 0.005,
-          decay: 12,
-          sustain: 0.3,
-          release: 1
-        }
-      }
-    )
+    this.synth = new Tone.Synth()
     this.val = 196;
     this.alt = 1760;
     this.tempRange = tempRange
