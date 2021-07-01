@@ -10,14 +10,20 @@ module.exports = class Instrument {
     this.synth = new Tone.Synth()
     this.value = 196;
     this.alt = 1760;
+    this.loop = new Tone.Loop((time) => {
+    //  this.synth.triggerAttackRelease(alt, "8n", now)
+    //  this.synth.triggerAttackRelease(alt, "8n", now)
+//
+
+    })
 
 
   }
 
   play(spec, temp, control) {
     this.synth.connect(Tone.Master)
-    var val = this.low + ((spec - this.min) * (this.high - this.low) / (this.max - this.min))
-    var alt = this.low + ((spec - this.min) * (this.mid - this.low) / (this.max - this.min))
+    this.val = this.low + ((spec - this.min) * (this.high - this.low) / (this.max - this.min))
+    this.alt = this.low + ((spec - this.min) * (this.mid - this.low) / (this.max - this.min))
 
 
 
@@ -29,7 +35,7 @@ module.exports = class Instrument {
     } else {
       // console.log('playing')
       //setTimeout(this.synth.triggerAttackRelease(val, "8n"), 0)
-     this.synth.triggerAttackRelease(alt, "8n")
+     this.synth.triggerAttackRelease(this.alt, "8n")
 
 
     }

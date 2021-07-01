@@ -12,7 +12,6 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      playPressed: false,
       samples: {},
       v1: 'winkler_method_top_dissolved_oxygen_mg_l',
       v2: 'bottom_salinity_psu',
@@ -43,9 +42,7 @@ class App extends React.Component {
   play() {
     var startDate = new Date('1995-01-04T00:00:00.000Z')
     var sampleCount = 0
-    // this.setState({
-    //   playPressed: true
-    // })
+
     var Violin1 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v1])
     var Violin2 = new Instrument(196, 1760, 3520, this.state.ranges[this.state.v2])
     var Viola = new Instrument(130.81, 659.255, 1318.51, this.state.ranges[this.state.vla])
@@ -92,15 +89,7 @@ class App extends React.Component {
   }
 
   render() {
-    if (this.state.playPressed) {
-    return (
-      <div>
-        <h1>This will eventually be a string quartet</h1>
-        <button id="playButton" onClick={this.play}>PLAY</button>
-        <Violin_1_Component />
-      </div>
-    )
-    } else {
+
       return (
         <div>
           <h1>This will eventually be a string quartet</h1>
@@ -108,7 +97,7 @@ class App extends React.Component {
         </div>
       )
 
-    }
+
   }
 }
 
