@@ -45,7 +45,7 @@ module.exports = class Instrument {
 
 
     this.synth.triggerRelease()
-    this.synth.triggerAttack(alt, '1n')
+    this.synth.triggerAttack(alt)
 
 
 
