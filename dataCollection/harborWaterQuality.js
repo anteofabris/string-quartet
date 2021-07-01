@@ -42,7 +42,7 @@ light_trans_transparency_bottom_sample`)
         }
       }
       result['ranges'] = ranges
-      // console.log('ranges: ', ranges)
+      console.log('ranges: ', ranges)
       callback(null, result)
 
 
@@ -52,8 +52,6 @@ light_trans_transparency_bottom_sample`)
       callback(err)
     })
 }
-
-
 
 // create a ranges finder
 // ranges object

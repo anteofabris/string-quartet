@@ -35,15 +35,18 @@ class App extends React.Component {
 
   }
 
+  stop() {
+
+  }
 
   play() {
     var startDate = new Date('1995-01-04T00:00:00.000Z')
     var sampleCount = 0
 
-    var Violin1 = new Instrument('Violin1', 196, 1760, 3520, this.state.ranges[this.state.v1])
-    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, this.state.ranges[this.state.v2])
-    var Viola = new Instrument('Viola', 130.81, 659.255, 1318.51, this.state.ranges[this.state.vla])
-    var Violoncello = new Instrument('Violincello', 65.41, 523.25, 1046.5, this.state.ranges[this.state.vcl])
+    var Violin1 = new Instrument('Violin1', 196, 1760, 3520, 440, this.state.ranges[this.state.v1], this.state.ranges['bottom_sample_temperature_c'])
+    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, 440, this.state.ranges[this.state.v2], this.state.ranges['bottom_sample_temperature_c'])
+    var Viola = new Instrument('Viola', 130.81, 659.255, 1318.51, 440, this.state.ranges[this.state.vla], this.state.ranges['bottom_sample_temperature_c'])
+    var Violoncello = new Instrument('Violincello', 65.41, 523.25, 1046.5, 440, this.state.ranges[this.state.vcl], this.state.ranges['bottom_sample_temperature_c'])
 
 
     var sampleSequence =
@@ -92,6 +95,7 @@ class App extends React.Component {
         <div>
           <h1>This will eventually be a string quartet</h1>
           <button id="playButton" onClick={this.play}>PLAY</button>
+          <button id="stopButton" onClick={this.stop}>STOP</button>
         </div>
       )
 
