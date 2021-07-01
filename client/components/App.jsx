@@ -4,7 +4,6 @@ import axios from 'axios';
 import Instrument from '../../audio-exit/Instrument.js'
 
 
-
 class App extends React.Component {
   constructor(props) {
     super(props)

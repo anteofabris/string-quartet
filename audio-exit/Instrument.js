@@ -40,14 +40,11 @@ module.exports = class Instrument {
     var tempInterval = (temp - minTemp) / (maxTemp - minTemp)
 
     console.log(`val and alt for ${this.name}: `, this.val, this.alt)
-    //  console.log('tempVal:', tempVal, 'current val array: ', options[tempVal])
     console.log('tempInterval: ', tempInterval)
 
 
     this.synth.triggerRelease()
     this.synth.triggerAttack(alt)
-
-
 
   }
 
