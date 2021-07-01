@@ -1,11 +1,8 @@
 import React from 'react';
 import * as Tone from 'tone';
 import axios from 'axios';
-import Instrument from '../../audio-exit/Violin_1.js'
-import Violin_2 from '../../audio-exit/Violin_2.js'
-import Viola from '../../audio-exit/Viola.js'
-import Violoncello from '../../audio-exit/Violoncello.js'
-import Violin_1_Component from './Violin_1_Component.jsx'
+import Instrument from '../../audio-exit/Instrument.js'
+
 
 
 class App extends React.Component {
