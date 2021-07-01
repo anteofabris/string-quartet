@@ -55,10 +55,6 @@ class App extends React.Component {
         console.log('new day', date)
 
         if (this.state.samples[date.toISOString().split('T')[0]] !== undefined) {
-          // Violin1.play(0, 0, 'off')
-          // Violin2.play(0, 0, 'off')
-          // Viola.play(0, 0, 'off')
-          // Violoncello.play(0, 0, 'off')
 
           // get temperature
           var temp = this.state.samples[date.toISOString().split('T')[0]].bottom_sample_temperature_c
@@ -79,8 +75,12 @@ class App extends React.Component {
 
         }
         if (date.toISOString().toString() === '2016-10-31T00:00:00.000Z') {
-          console.log('the piece is over!')
+          Violin1.stop()
+          Violin2.stop()
+          Viola.stop()
+          Violoncello.stop()
           clearInterval(sampleSequence)
+          console.log('the piece is over!')
           return;
         }
         startDate.setDate(startDate.getDate() + 1) // --> increments the day by 1 (destructive)
