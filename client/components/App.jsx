@@ -44,7 +44,7 @@ class App extends React.Component {
     var sampleCount = 0
 
     var Violin1 = new Instrument('Violin1', 196, 1760, 3520, 440, this.state.ranges[this.state.v1], this.state.ranges['bottom_sample_temperature_c'])
-    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, 440, this.state.ranges[this.state.v2], this.state.ranges['bottom_sample_temperature_c'])
+    var Violin2 = new Instrument('Violin2', 196, 1760, 3520, 440, this.state.ranges[this.state.v2].reverse(), this.state.ranges['bottom_sample_temperature_c'])
     var Viola = new Instrument('Viola', 130.81, 659.255, 1318.51, 440, this.state.ranges[this.state.vla], this.state.ranges['bottom_sample_temperature_c'])
     var Violoncello = new Instrument('Violincello', 65.41, 523.25, 1046.5, 440, this.state.ranges[this.state.vcl], this.state.ranges['bottom_sample_temperature_c'])
 
