@@ -19,25 +19,35 @@ module.exports = class Instrument {
     var val = this.low + ((spec - this.min) * (this.high - this.low) / (this.max - this.min))
     var alt = this.low + ((spec - this.min) * (this.mid - this.low) / (this.max - this.min))
 
-    var pattern = new Tone.Pattern((time, note) => {
-      // the order of the notes passed in depends on the pattern
-      console.log('in pattern!')
-      this.synth.triggerAttackRelease(note, "8n")
-    }, [val, alt], "upDown");
 
 
-    pattern.loop = false;
-    pattern.interval = 0.1;
+
 
     if (control === 'off') {
       //this.pattern.stop()
       this.synth.disconnect()
     } else {
-      // this.synth.triggerAttackRelease(this.value, "8n")
-      Tone.Transport.start();
-      pattern.start();
+      // console.log('playing')
+      //setTimeout(this.synth.triggerAttackRelease(val, "8n"), 0)
+     this.synth.triggerAttackRelease(alt, "8n")
+
+
     }
 
   }
 
 }
+
+
+// var pattern = new Tone.Pattern((time, note) => {
+//   // the order of the notes passed in depends on the pattern
+//   console.log('in pattern!')
+//   this.synth.triggerAttackRelease(note, "8n")
+// }, [val, alt, alt, val], "upDown");
+
+// pattern.loop = false;
+// pattern.interval = 0.1;
+
+ // Tone.Transport.start();
+ // pattern.start();
+
