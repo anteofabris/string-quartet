@@ -1,6 +1,6 @@
 const Tone = require('tone')
 
-module.exports.play = (spec, temp, minMax) => {
+module.exports.play = (spec, temp, minMax,) => {
   console.log('playing violoncello lol', spec, temp, minMax)
 
   var a = 65.41
